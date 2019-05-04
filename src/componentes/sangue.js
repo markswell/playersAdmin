@@ -6,7 +6,7 @@ export default class Sangue extends Component{
         return (
             <View >
                 <Text style={Styles.titulo}>Sangue</Text>
-                <SanguePreencher />
+                <SanguePreencher psangue={ this.props.psangue }/>
             </View>
         );
     }
@@ -16,19 +16,20 @@ class SanguePreencher extends Component{
 
     constructor(props){
         super(props);
-        this.state = { valor: 1 }
+        this.state = { valor: 1 };
+        this.valorSangue = [];
     }
 
-    valorFv = [1,2,3,4,5,6,7,8,9,10,
-                11,12,13,14,15,16,17,18,19,20,
-                21,22,23,24,25,26,27,28,29,30,
-                31,32,33,34,35,36,37,38,39,40,
-                41,42,43,44,45,46,47,48,49,50]
+    componentWillMount() {
+        for(var i = 1; i <= this.props.psangue; i++){
+          this.valorSangue.push(i);
+        }
+      }
 
     render(){
         return (
             <View style={ Styles.container }>
-                { this.valorFv.map(fv => {
+                { this.valorSangue.map(fv => {
                     if( parseInt(this.state.valor) >= fv){
                         return this.getClicado(fv);
                     }else{
@@ -79,8 +80,9 @@ class SanguePreencher extends Component{
 const Styles = {
     container: {
         flexDirection: 'row',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         flexWrap: 'wrap',
+        margin: 5,
     },
     titulo: {
         fontSize: 40,

@@ -13,8 +13,8 @@ export default class App extends Component {
   render() {
     return (
       <ScrollView>
-        <ForcaVontade />
-        <Sangue />
+        <ForcaVontade fvontade={10} />
+        <Sangue psangue={10}/>
         <Vitalidade />
       </ScrollView>
     );

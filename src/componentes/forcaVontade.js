@@ -6,7 +6,7 @@ export default class ForcaVontade extends Component{
         return (
             <View >
                 <Text style={Styles.titulo}>Força de vontade</Text>
-                <FVPermamente />
+                <FVPermamente fvontade={ this.props.fvontade } />
             </View>
         );
     }
@@ -17,9 +17,16 @@ class FVPermamente extends Component{
     constructor(props){
         super(props);
         this.state = { valor: 1 }
+        this.valorFv = [];
     }
 
-    valorFv = [1,2,3,4,5,6,7,8,9,10]
+
+    componentWillMount() {
+      for(var i = 1; i <= this.props.fvontade; i++){
+        this.valorFv.push(i);
+      }
+    }
+    
 
     render(){
         return (
@@ -40,7 +47,12 @@ class FVPermamente extends Component{
         return (
             <View key={fv}>
                 <TouchableHighlight underlayColor='#fff' onPress={ () => {
-                    this.setState({valor: fv });
+                    if(this.state.valor === 1 && fv === 1){
+                        this.setState({valor: 0 });
+                    }
+                    else{
+                        this.setState({valor: fv });
+                    }
                 } }>
                     <Image source={ require('../resources/ponto_permanente_preenchido.png') } style={ {width: 40, height: 45,}} />
                 </TouchableHighlight>
@@ -51,7 +63,12 @@ class FVPermamente extends Component{
         return (
             <View key={fv} >
                 <TouchableHighlight underlayColor='#fff' onPress={ () => {
-                   this.setState({valor: fv });
+                   if(this.state.valor === 1 && fv === 1){
+                        this.setState({valor: 0 });
+                    }
+                    else{
+                        this.setState({valor: fv });
+                    }
                 } }>
                     <Image source={  require('../resources/ponto_permanente_branco.png') } style={ {width: 40, height: 45,}}/>
                 </TouchableHighlight>
@@ -65,7 +82,9 @@ class FVPermamente extends Component{
 const Styles = {
     container: {
         flexDirection: 'row',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
+        flexWrap: 'wrap',
+        margin: 5,
     },
     titulo: {
         fontSize: 40,
