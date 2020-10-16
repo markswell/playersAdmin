@@ -54,7 +54,7 @@ class FVPermamente extends Component{
                         this.setState({valor: fv });
                     }
                 } }>
-                    <Image source={ require('../resources/ponto_permanente_preenchido.png') } style={ {width: 40, height: 45,}} />
+                    <Image source={ require('../resources/ponto_permanente_preenchido.png') } style={ {width: 30, height: 35}} />
                 </TouchableHighlight>
             </View>
         );
@@ -70,7 +70,7 @@ class FVPermamente extends Component{
                         this.setState({valor: fv });
                     }
                 } }>
-                    <Image source={  require('../resources/ponto_permanente_branco.png') } style={ {width: 40, height: 45,}}/>
+                    <Image source={  require('../resources/ponto_permanente_branco.png') } style={ {width: 30, height: 35}}/>
                 </TouchableHighlight>
             </View>
         );
@@ -82,9 +82,8 @@ class FVPermamente extends Component{
 const Styles = {
     container: {
         flexDirection: 'row',
-        justifyContent: 'flex-start',
-        flexWrap: 'wrap',
-        margin: 5,
+        justifyContent: 'center',
+        flexWrap: 'wrap'
     },
     titulo: {
         fontSize: 40,

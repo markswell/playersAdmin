@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
-import Vitalidade from './src/componentes/vitalidade'
-import ForcaVontade from './src/componentes/forcaVontade'
-import Sangue from './src/componentes/sangue'
+import { ScrollView, Text } from 'react-native';
+import Vitalidade from './src/componentes/vitalidade';
+import ForcaVontade from './src/componentes/forcaVontade';
+import Sangue from './src/componentes/sangue';
+import CabecalhoPersonagem from './src/componentes/cabecalhoPersonagem'
 
 export default class App extends Component {
 
@@ -13,6 +14,7 @@ export default class App extends Component {
   render() {
     return (
       <ScrollView>
+        <CabecalhoPersonagem nome={'Altair'} cla={'Assamita'} geracao='8ª'/>
         <ForcaVontade fvontade={10} />
         <Sangue psangue={10}/>
         <Vitalidade />
